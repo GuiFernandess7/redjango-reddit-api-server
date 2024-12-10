@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm redjango_app python manage.py test
+          docker run --rm redjango_app python redjango/manage.py test
