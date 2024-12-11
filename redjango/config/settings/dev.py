@@ -1,16 +1,13 @@
 from config.settings.base import *
-import sys
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
-    }
-else:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+DATABASES['default'] = {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.getenv("DB_NAME_DEV"),
+    'USER': os.getenv("DB_USER_DEV"),
+    'PASSWORD': os.getenv("DB_PASSWORD_DEV"),
+    'HOST': os.getenv("DB_HOST_DEV"),
+    'PORT': os.getenv("DB_PORT"),
+}
