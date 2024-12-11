@@ -17,5 +17,8 @@ DATABASES = {
         'PASSWORD': os.getenv("DB_PASSWORD_DEV"),
         'HOST': os.getenv("DB_HOST_DEV"),
         'PORT': os.getenv("DB_PORT"),
+        'TEST': {
+            'NAME': os.getenv("DB_NAME_DEV"),
+        },
     }
 }
