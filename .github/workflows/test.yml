@@ -10,6 +10,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      DJANGO_SETTINGS_MODULE: "config.settings"
+      DB_NAME_DEV: ${{ secrets.DB_NAME_DEV }}
+      DB_USER_DEV: ${{ secrets.DB_USER_DEV }}
+      DB_PASSWORD_DEV: ${{ secrets.DB_PASSWORD_DEV }}
+      DB_HOST_DEV: ${{ secrets.DB_HOST_DEV }}
+
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_NAME_PROD: ${{ secrets.DB_NAME_PROD }}
+      DB_USER_PROD: ${{ secrets.DB_USER_PROD }}
+      DB_PASSWORD_PROD: ${{ secrets.DB_PASSWORD_PROD }}
+      DB_HOST_PROD: ${{ secrets.DB_HOST_PROD }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -28,5 +41,7 @@ jobs:
           docker build -t redjango_app .
 
       - name: Run tests
+        env:
+          DJANGO_SETTINGS_MODULE: "config.testsettings"
         run: |
           docker run --rm redjango_app python redjango/manage.py test
