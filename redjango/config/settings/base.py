@@ -6,6 +6,8 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+TEST_DATABASE_PREFIX = 'test_'
+
 SECRET_KEY = os.getenv("DJANGO_KEY", "default-secret-key")
 
 DEBUG = os.getenv("DEBUG")
