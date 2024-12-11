@@ -38,4 +38,11 @@ jobs:
         run: |
           echo "Verificando variáveis de ambiente:"
           echo "DB_NAME_DEV: $DB_NAME_DEV"
-          docker run --rm redjango_app python redjango/manage.py test
+          docker run \
+            -e DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE \
+            -e DB_NAME_DEV=$DB_NAME_DEV \
+            -e DB_USER_DEV=$DB_USER_DEV \
+            -e DB_PASSWORD_DEV=$DB_PASSWORD_DEV \
+            -e DB_HOST_DEV=$DB_HOST_DEV \
+            -e DB_PORT=$DB_PORT \
+            --rm redjango_app python redjango/manage.py test
