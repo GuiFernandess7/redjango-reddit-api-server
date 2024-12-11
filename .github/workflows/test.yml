@@ -29,7 +29,7 @@ jobs:
 
       - name: Run tests
         env:
-          DJANGO_SETTINGS_MODULE: "config.testsettings"
+          DJANGO_SETTINGS_MODULE: "config.settings.dev"
           DB_NAME_DEV: ${{ secrets.DB_NAME_DEV }}
           DB_USER_DEV: ${{ secrets.DB_USER_DEV }}
           DB_PASSWORD_DEV: ${{ secrets.DB_PASSWORD_DEV }}
