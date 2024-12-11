@@ -12,7 +12,6 @@ jobs:
 
     env:
       DEBUG: "True"
-      #DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Check out repository
