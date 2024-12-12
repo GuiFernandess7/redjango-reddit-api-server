@@ -24,8 +24,11 @@ RUN uv venv /venv && \
 
 COPY . .
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 ENV PATH="/venv/bin:$PATH"
 
 EXPOSE 8000
 
-CMD ["python", "redjango/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["./start.sh"]
