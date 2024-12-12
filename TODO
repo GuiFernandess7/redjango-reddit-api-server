@@ -1,5 +1,5 @@
-1. Adicionar as variaveis do DB (AWS - RDS) no secrets do Github e no worklow
-2. Rodar o workflow dos testes
+1. Adicionar as variaveis do DB (AWS - RDS) no secrets do Github e no worklow (DONE)
+2. Rodar o workflow dos testes (DONE)
 
 3. Iniciar o desenvolvimento no django
 - Criar o app principal
