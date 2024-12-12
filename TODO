@@ -2,6 +2,7 @@
 2. Rodar o workflow dos testes (DONE)
 
 3. Iniciar o desenvolvimento no django
+
 - Criar o app principal
 - Implementar os modelos
 - Fazer as migrações
@@ -9,5 +10,6 @@
 - Entrar na area administrativa
 
 4. Criar testes
+
 - De modelos
 - De permissão
