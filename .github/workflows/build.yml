@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DEBUG: "True"
+      DEBUG: True
 
     steps:
       - name: Check out repository
