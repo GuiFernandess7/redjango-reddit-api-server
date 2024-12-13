@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   app:
     build: .
@@ -5,12 +7,15 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    env_file:
-      - .env.dev
     environment:
       - DEBUG=True
       - DJANGO_SETTINGS_MODULE=redjango.config.settings.dev
       - PYTHONUNBUFFERED=1
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=redjango-dev
+      - DB_HOST=db
+      - DB_PORT=5432
     depends_on:
       - db
 
@@ -18,16 +23,18 @@ services:
     image: postgis/postgis:15-3.3
     volumes:
       - pgdata:/var/lib/postgresql/data
-    env_file:
-      - .env.dev
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=redjango-dev
 
   pgadmin:
     image: dpage/pgadmin4:8.11.0
     ports:
       - 5050:80
     environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL_DEV}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD_DEV}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
 
 volumes:
   pgdata:
