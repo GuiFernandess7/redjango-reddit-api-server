@@ -70,10 +70,10 @@ jobs:
           export DEBUG=1
           export GITHUB_WORKFLOW=True
           export MODE=workflow
-          python manage.py makemigrations
-          python manage.py migrate
-          python manage.py migrate --run-syncdb
-          python manage.py check
+          python redjango/manage.py makemigrations
+          python redjango/manage.py migrate
+          python redjango/manage.py migrate --run-syncdb
+          python redjango/manage.py check
 
       - name: Run tests
         run: |
