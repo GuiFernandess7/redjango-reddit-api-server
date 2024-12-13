@@ -44,6 +44,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install django --no-cache-dir
           pip install .
 
       - name: Setup test database
