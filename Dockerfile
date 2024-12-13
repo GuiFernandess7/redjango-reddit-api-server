@@ -14,15 +14,13 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY . .
 
 RUN pip install uv
 
 RUN uv venv /venv && \
     . /venv/bin/activate && \
-    uv pip install -r requirements.txt
-
-COPY . .
+    uv pip install .
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh

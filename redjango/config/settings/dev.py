@@ -1,18 +1,17 @@
 from config.settings.base import *
 
-DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME_DEV"),
+        'NAME': os.getenv("POSTGRES_DB_DEV"),
         'TEST': {
-            'NAME': os.getenv("DB_NAME_DEV"),
+            'NAME': os.getenv("POSTGRES_DB_DEV"),
         },
-        'USER': os.getenv("DB_USER_DEV"),
-        'PASSWORD': os.getenv("DB_PASSWORD_DEV"),
-        'HOST': os.getenv("DB_HOST_DEV"),
-        'PORT': os.getenv("DB_PORT"),
+        'USER': os.getenv("POSTGRES_USER_DEV"),
+        'PASSWORD': os.getenv("POSTGRES_PASSWORD_DEV"),
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }

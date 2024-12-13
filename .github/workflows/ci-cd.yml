@@ -1,20 +1,37 @@
-name: CI/CD Pipeline
+name: Django CI/CD
 
 on:
   push:
     branches:
-      - dev
       - main
+      - dev
 
 jobs:
   build:
-    uses: ./.github/workflows/build.yml
+    runs-on: ubuntu-latest
 
-  test:
-    uses: ./.github/workflows/test.yml
-    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #deploy:
-  #  uses: ./.github/workflows/deploy.yml
-  #  needs: test
-  #  if: github.ref == 'refs/heads/main'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+
+      - name: Run migrations and tests
+        env:
+          DJANGO_SETTINGS_MODULE: ${{ github.ref == 'refs/heads/dev' && 'redjango.settings.dev' || 'redjango.settings.prod' }}
+        run: |
+          python manage.py migrate
+          python manage.py test
+
+      #- name: Deploy to Production
+      #  if: github.ref == 'refs/heads/main'
+      #  run: |
+      #    CLOUD INTEGRATION

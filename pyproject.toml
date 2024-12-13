@@ -1,5 +1,5 @@
 [project]
-name = "django-reddit"
+name = "django-draft"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"

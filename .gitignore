@@ -8,7 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
-.env
-
-# Local database
-db.sqlite3
+.env.prod
+.env.dev
+redjango/config/staticfiles

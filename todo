@@ -1,0 +1,17 @@
+1. Adicionar as variaveis do DB (AWS - RDS) no secrets do Github e no worklow (DONE)
+2. Rodar o workflow dos testes (DONE)
+
+3. Iniciar o desenvolvimento no django
+
+- Criar o app principal (FEITO)
+- Implementar os modelos (FEITO)
+- Fazer as migrações (FEITO)
+- Criar um superuser (FEITO)
+- Entrar na area administrativa (FEITO)
+
+4. Criar testes
+
+- Teste de adição manual
+- Teste unitário (Mocks)
+
+5. Desenvolvimento da API
